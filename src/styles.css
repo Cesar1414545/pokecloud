@@ -1,0 +1,143 @@
+:root{
+  --bg:#0b1220; --panel:#0f172a; --ink:#e5e7eb; --accent:#0ea5e9; --sub:#94a3b8;
+}
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial}
+button{background:var(--accent);color:#fff;border:0;border-radius:12px;padding:12px 16px;font-weight:700;cursor:pointer;font-size:16px}
+button:disabled{opacity:.5;cursor:not-allowed}
+.btn-ghost{background:transparent;border:1px solid var(--accent);color:var(--accent)}
+.pill{background:#1f2937;color:#cbd5e1;padding:8px 12px;border-radius:999px}
+
+.title-screen{display:grid;place-items:center;height:100vh;background:url('/images/lab_bg.png') center/cover no-repeat}
+.title-card{backdrop-filter:blur(6px);background:#0b1220cc;border:1px solid #1e293b;padding:30px;border-radius:22px;box-shadow:0 20px 60px #0006;max-width:560px;width:92%}
+.title-card h1{margin:0 0 12px}
+.title-card .menu{display:flex;gap:12px}
+.badge{opacity:.8;font-size:12px;margin-top:10px}
+
+.game-root{position:relative;min-height:100vh}
+.hud{position:fixed;top:14px;left:14px;right:14px;display:flex;justify-content:space-between;align-items:center;gap:10px;z-index:10}
+.hud-group{display:flex;gap:10px;align-items:center}
+
+.scene{position:relative;min-height:100vh;background:#000 center/cover no-repeat}
+.actors{position:absolute;inset:0;pointer-events:none}
+.actor{position:absolute;bottom:16vh;max-height:70vh;filter:drop-shadow(0 10px 30px #0008)}
+.actor.left{left:6vw}
+.actor.center{left:50%;transform:translateX(-50%)}
+.actor.right{right:6vw}
+/* Meowth menor */
+/* tamanhos de personagens */
+.actor.small{ max-height:40vh; }   /* Meowth menor */
+.actor.large{ height: 1000px; }   /* Jessie/James maiores */
+
+
+.extra{position:absolute;bottom:45vh;left:50%;transform:translateX(-50%);max-height:30vh}
+
+.ui{position:absolute;left:0;right:0;bottom:0;padding:20px}
+.dialogue{
+  background:linear-gradient(180deg,#0b1220cc,#0b1220f2);
+  border:1px solid #1e293b;
+  border-radius:18px;
+  padding:20px 22px;          /* maior */
+  max-width:1100px;           /* mais larga */
+  margin:0 auto 10px;
+}
+.name{font-weight:800;color:#93c5fd;margin-bottom:8px;font-size:18px}
+.text{line-height:1.7;color:#e2e8f0;font-size:18px} /* maior */
+
+.actions{margin-top:12px}
+
+.choices{display:grid;grid-template-columns:1fr;gap:10px;max-width:1100px;margin:0 auto}
+.choice{width:100%;text-align:left;font-size:16px}
+
+.quiz{
+  background:#0b1220cc;
+  border:1px solid #1e293b;
+  border-radius:18px;
+  padding:20px 22px;         /* maior */
+  max-width:1100px;
+  margin:10px auto;
+}
+.quiz .q{font-weight:800;margin-bottom:12px;font-size:18px}
+.quiz .a{display:grid;gap:10px}
+.quiz .feedback{margin-top:10px;color:#fca5a5;font-size:16px}
+
+@media (min-width: 800px){
+  .choices{grid-template-columns:1fr 1fr}
+  .quiz .a{grid-template-columns:1fr 1fr}
+}
+
+/* Pokébolas de vida (caso use) */
+.life-icon{width:28px;height:28px;margin:0 2px;filter:drop-shadow(0 0 3px #000);transition:transform .2s}
+.life-icon:hover{transform:scale(1.1)}
+
+/* TÍTULO BONITO */
+.title-screen{
+  display:grid; place-items:center; height:100vh;
+  background: radial-gradient(1200px 600px at 20% -20%, #0ea5e944, transparent 60%),
+              radial-gradient(1000px 700px at 110% 80%, #22d3ee33, transparent 60%),
+              url('/images/lab_bg.png') center/cover no-repeat;
+}
+
+.title-card.fancy{
+  width:min(560px, 92%);
+  padding:32px 28px;
+  border-radius:24px;
+  border:1px solid #1e293b;
+  background:linear-gradient(180deg, #0b1220dd, #0b1220f5);
+  box-shadow: 0 30px 80px #0008, inset 0 0 120px #0ea5e915;
+  text-align:center;
+}
+
+.title-logo{
+  font-size:42px; font-weight:900; letter-spacing:.5px;
+  background: linear-gradient(90deg, #93c5fd, #a5b4fc 40%, #7dd3fc);
+  -webkit-background-clip: text; background-clip:text; color: transparent;
+}
+
+.subtitle{ margin-top:6px; color:#cbd5e1; font-size:14px; opacity:.85 }
+
+.menu-vertical{
+  display:flex; flex-direction:column; gap:12px; margin:22px 0 14px;
+}
+
+.btn-lg{
+  background:#0ea5e9; color:#fff; border:0; border-radius:14px;
+  padding:14px 18px; font-size:16px; font-weight:800; cursor:pointer;
+  box-shadow: 0 8px 24px #0ea5e955;
+  transition: transform .15s ease, box-shadow .2s ease, opacity .2s ease;
+}
+.btn-lg:hover{ transform: translateY(-1px); box-shadow: 0 12px 28px #0ea5e977; }
+.btn-lg:disabled{ opacity:.5; cursor:not-allowed; transform:none; box-shadow:none }
+
+.btn-ghost.strong{
+  background:transparent; border:1px solid #38bdf8; color:#7dd3fc;
+}
+.btn-ghost.strong:hover{ background:#0b122040; }
+
+.btn-outline{
+  background:transparent; border:1px solid #334155; color:#e5e7eb;
+}
+.btn-outline:hover{ border-color:#7dd3fc; color:#cdeafe; }
+
+.footnote{ margin-top:8px; opacity:.65; font-size:12px }
+
+/* MODAL DE CRÉDITOS */
+.modal-backdrop{
+  position:fixed; inset:0; display:grid; place-items:center;
+  background:#0008; backdrop-filter: blur(4px);
+  animation: fadeIn .15s ease both;
+}
+.modal{
+  width:min(560px, 92%); background:#0b1220; color:#e5e7eb;
+  border:1px solid #1f2937; border-radius:16px; padding:20px 22px;
+  box-shadow: 0 30px 80px #000a, inset 0 0 60px #38bdf822;
+}
+.modal h2{ margin:0 0 4px; font-size:22px }
+.credits-list{ text-align:left; margin:14px 0; padding-left:18px; line-height:1.7 }
+.modal-actions{ display:flex; justify-content:flex-end; gap:10px; margin-top:10px }
+
+@keyframes fadeIn{
+  from { opacity:0; transform: scale(.98) }
+  to   { opacity:1; transform: scale(1) }
+}
